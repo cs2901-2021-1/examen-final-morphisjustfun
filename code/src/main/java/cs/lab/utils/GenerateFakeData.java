@@ -11,4 +11,8 @@ public class GenerateFakeData {
     public static int generateVacunadosCompletos() {
         return randGenerator.nextInt(500);
     }
+
+    private GenerateFakeData(){
+        //default one
+    }
 }

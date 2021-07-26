@@ -118,11 +118,15 @@ public class DataVacunacion {
         logger.warning(vacunadosCPStr);
         logger.warning("Numero de Centros de Vacunacion");
         Integer cantidadVacu = (Integer) this.centrosVacunacion.size();
-        logger.warning(cantidadVacu.toString());
+
+        String cantidadVacuStr = cantidadVacu.toString();
+        logger.warning(cantidadVacuStr);
         logger.warning("Numero de personas vacunadas parcialmente");
-        logger.warning(totalVacunados.toString());
+        String totalVacunadosStr = totalVacunados.toString();
+        logger.warning(totalVacunadosStr);
         logger.warning("Numero de personas vacunadas completamente");
-        logger.warning(totalVacunadosCompletos.toString());
+        String totalVacunadosCompletosStr = totalVacunadosCompletos.toString();
+        logger.warning(totalVacunadosCompletosStr);
     }
 
     void visualizarPorcentaje(){
