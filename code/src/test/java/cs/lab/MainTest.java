@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 import java.util.logging.Logger;
 
 
-class CSTranslatorTest 
+class CSTranslatorTest {
     static final Logger logger = Logger.getLogger(Main.class.getName());
 
     @Test

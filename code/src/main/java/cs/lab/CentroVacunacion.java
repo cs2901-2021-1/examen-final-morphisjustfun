@@ -11,17 +11,16 @@ import cs.lab.utils.GenerateFakeData;
 public class CentroVacunacion {
     String name;
 
-    List<List<Map<String, Integer>>> report() {
+    List<Map<String, Integer>> report() {
         List<Map<String, Integer>> result = new ArrayList<>();
         Map<String, Integer> avanceVacunados = new HashMap<>();
         Map<String, Integer> avanceVacunadosCompletos = new HashMap<>();
         for (var grupoEdad : Constants.gruposEdadString) {
-            avanceVacunados.put(grupoEdad)
-            avanceVacunados.add(tempParcial);
-            avanceVacunadosCompletos.add(tempTotal);
+            avanceVacunados.put(grupoEdad, GenerateFakeData.generateVacunados());
+            avanceVacunadosCompletos.put(grupoEdad, GenerateFakeData.generateVacunadosCompletos());
         }
-        result.set(0,avanceVacunados);
-        result.set(0,avanceVacunadosCompletos);
+        result.set(0, avanceVacunados);
+        result.set(1, avanceVacunadosCompletos);
         return result;
     }
 }
