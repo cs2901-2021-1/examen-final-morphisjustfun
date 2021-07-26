@@ -23,4 +23,8 @@ public class CentroVacunacion {
         result.set(1, avanceVacunadosCompletos);
         return result;
     }
+
+    CentroVacunacion(String name){
+        this.name = name;
+    }
 }

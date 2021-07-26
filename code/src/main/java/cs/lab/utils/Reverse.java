@@ -5,4 +5,8 @@ public class Reverse {
         StringBuilder textBuffer = new StringBuilder(text);
         return textBuffer.reverse().toString();
     }
+
+    private Reverse(){
+        //default one
+    }
 }

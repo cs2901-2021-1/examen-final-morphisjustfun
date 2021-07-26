@@ -2,7 +2,7 @@ package cs.lab;
 
 import cs.lab.utils.GruposEdad;
 import java.util.logging.Logger;
-
+import java.util.ArrayList;
 import java.util.List;
 
 import cs.lab.utils.Constants;
@@ -10,11 +10,35 @@ import cs.lab.utils.Constants;
 public class DataVacunacion {
     static final Logger logger = Logger.getLogger(DataVacunacion.class.getName());    
     String name;
-    GruposEdad gruposEdad;
-    GruposEdad avanceVacunacion;
-    GruposEdad avanceVacunacionCompleto;
+    public GruposEdad getGruposEdad() {
+        return gruposEdad;
+    }
 
-    List<CentroVacunacion> centrosVacunacion;
+    public void setGruposEdad(GruposEdad gruposEdad) {
+        this.gruposEdad = gruposEdad;
+    }
+
+    public GruposEdad getAvanceVacunacion() {
+        return avanceVacunacion;
+    }
+
+    public void setAvanceVacunacion(GruposEdad avanceVacunacion) {
+        this.avanceVacunacion = avanceVacunacion;
+    }
+
+    public GruposEdad getAvanceVacunacionCompleto() {
+        return avanceVacunacionCompleto;
+    }
+
+    public void setAvanceVacunacionCompleto(GruposEdad avanceVacunacionCompleto) {
+        this.avanceVacunacionCompleto = avanceVacunacionCompleto;
+    }
+
+    GruposEdad gruposEdad = new GruposEdad();
+    GruposEdad avanceVacunacion = new GruposEdad();
+    GruposEdad avanceVacunacionCompleto = new GruposEdad();
+
+    List<CentroVacunacion> centrosVacunacion = new ArrayList<>();
 
     DataVacunacion(String name) {
         this.name = name;
@@ -49,6 +73,7 @@ public class DataVacunacion {
 
     void notificar() {
         for (var centro : centrosVacunacion) {
+            logger.warning(centro.name);
             var results = centro.report();
 
             var vacunadosParcial = results.get(0);
@@ -65,7 +90,7 @@ public class DataVacunacion {
 
         Integer totalVacunados = 0;
         Integer totalVacunadosCompletos = 0;
-        Integer totalGente = 0;
+        Integer totalGente = 1;
 
         for (String key: this.gruposEdad.grupos.keySet()){
             totalGente += this.gruposEdad.grupos.get(key);
@@ -83,11 +108,14 @@ public class DataVacunacion {
         float vacunadosP = totalVacunados / totalGente;
         float vacunadosCP = totalVacunadosCompletos / totalGente;
 
+        String vacunadosPStr = String.valueOf(vacunadosP);
+        String vacunadosCPStr = String.valueOf(vacunadosCP);
+
 
         logger.warning("Avance de la Vacunacion");
-        logger.warning(String.valueOf(vacunadosP));
+        logger.warning(vacunadosPStr);
         logger.warning("Cobertura de la Vacunacion");
-        logger.warning(String.valueOf(vacunadosCP));
+        logger.warning(vacunadosCPStr);
         logger.warning("Numero de Centros de Vacunacion");
         Integer cantidadVacu = (Integer) this.centrosVacunacion.size();
         logger.warning(cantidadVacu.toString());

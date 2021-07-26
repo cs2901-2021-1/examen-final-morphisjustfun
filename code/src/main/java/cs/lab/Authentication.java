@@ -9,7 +9,8 @@ public class Authentication {
     static final Logger logger = Logger.getLogger(Authentication.class.getName());
 
     public static Boolean LogIn() {
-        String username, password;
+        String username;
+        String password;
         logger.warning("Enter username:");
         Scanner scanner = new Scanner(System.in);
         username = scanner.nextLine();
@@ -27,6 +28,10 @@ public class Authentication {
     public static void LogOut() {
         logger.warning("Exiting application");
         LogIn();
+    }
+
+    private Authentication(){
+        // default one
     }
 
 }
